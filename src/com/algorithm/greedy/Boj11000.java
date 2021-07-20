@@ -26,6 +26,9 @@ import java.util.StringTokenizer;
 public class Boj11000 {
     //2차원 배열, 클래스를 이용
     //클래스 이용을 위해선 클래스 정렬을 위해 compareTo 인터페이스를 구현해야함.
+    //Comparator와 Comparable의 비교
+    //https://namocom.tistory.com/871
+    //Comparator는 람다로 대체 가능
     static class Lecture implements Comparable<Lecture>{
         int start;
         int end;
