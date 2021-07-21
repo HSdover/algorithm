@@ -1,17 +1,20 @@
 package com.algorithm.greedy;
 
-import java.util.PriorityQueue;
-
 public class prac {
     public static void main(String[] args) {
-        PriorityQueue<Integer> pq = new PriorityQueue<Integer>();
+        prac p = new prac();
 
-        pq.add(5);
-        pq.add(3);
-        pq.add(4);
-        pq.add(6);
-
-        while(!(pq.isEmpty()))
-            System.out.println(pq.poll());
+        p.test0();
     }
+
+    private void test0() {
+        int a = 2;
+        double b = 2;
+
+        double c = a / b;
+
+        System.out.println(c);
+    }
+
+
 }

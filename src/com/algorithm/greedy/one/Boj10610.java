@@ -1,4 +1,4 @@
-package com.algorithm.greedy;
+package com.algorithm.greedy.one;
 
 import java.io.*;
 import java.util.Arrays;

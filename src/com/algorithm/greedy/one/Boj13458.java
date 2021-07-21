@@ -1,12 +1,9 @@
 package com.algorithm.greedy.one;
 
-import com.sun.org.apache.xpath.internal.operations.String;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-
 //문제
 //총 N개의 시험장이 있고, 각각의 시험장마다 응시자들이 있다. i번 시험장에 있는 응시자의 수는 Ai명이다.
 //
@@ -29,24 +26,31 @@ public class Boj13458 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+        //시험장 수
         int N = Integer.parseInt(br.readLine());
-
-        StringTokenizer st1 = new StringTokenizer(br.readLine(), " ");
         int[] A = new int[N];
-        for(int i = 0; i < N; i++)
-            A[i] = Integer.parseInt(st1.nextToken());
+        //시험장당 학생 수
+        StringTokenizer st1 = new StringTokenizer(br.readLine(), " ");
 
+        //총, 보조 감독관이 맡는 학생 수
         StringTokenizer st2 = new StringTokenizer(br.readLine(), " ");
+
+        //총 감독관의 감독 학생 수
         int B = Integer.parseInt(st2.nextToken());
+        //보조 감독관의 감독 학생 수
         int C = Integer.parseInt(st2.nextToken());
 
-        int cnt = N;
+        for(int i = 0; i < N; i++)
+            //시험장당 학생 수
+            A[i] = Integer.parseInt(st1.nextToken()) - B;
+
+        //시험장당 총 감독관은 1명씩있어야함 int로 할 경우 작아서 안됨. 자료형도 생각하자
+        long cnt = N;
 
         for(int i = 0; i < N; i++) {
-            if(A[i] - B > 0) {
-                A[i] -= B;
-                if(!(A[i] % C == 0))
-                    cnt += A[i] / C + 1;
+            if(A[i] > 0) {
+                if (!(A[i] % C == 0))
+                    cnt += 1;
                 cnt += A[i] / C;
             }
         }
