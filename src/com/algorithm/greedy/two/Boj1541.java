@@ -20,17 +20,21 @@ public class Boj1541 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String s = br.readLine();
 
+        //적절한 괄호로 최소값을 만들기 위해선 +값들을 먼저 더해주고 빼주면 되기 때문에 -를 기준으로 나눠준다.
         String[] num1 = s.split("-");
         int[] num2 = new int[num1.length];
 
         for(int i = 0; i < num1.length; i++) {
+            //-를 기준으로 나눈+연산들을 각각 숫자로 나눠준 후 합한다.
             String[] num3 = num1[i].split("\\+");
             for(int j = 0; j < num3.length; j++)
                 num2[i] += Integer.parseInt(num3[j]);
         }
 
+
         int min = num2[0];
 
+        //연산을 마친 수들을 순서대로 빼준다.
         for(int i = 1; i < num2.length; i++)
             min -= num2[i];
 
