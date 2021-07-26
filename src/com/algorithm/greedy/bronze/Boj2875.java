@@ -1,4 +1,4 @@
-package com.algorithm.greedy.one;
+package com.algorithm.greedy.bronze;
 
 import java.io.BufferedReader;
 import java.io.IOException;
