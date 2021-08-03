@@ -8,12 +8,12 @@ public class prac {
     }
 
     private void test0() {
-        int a = 2;
-        double b = 2;
+        String s = "김치맨123";
 
-        double c = a / b;
+        char sub = s.charAt(1);
 
-        System.out.println(c);
+        System.out.println(s);
+        System.out.println(sub);
     }
 
 
