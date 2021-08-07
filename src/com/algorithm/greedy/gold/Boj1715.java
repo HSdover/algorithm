@@ -21,7 +21,7 @@ public class Boj1715 {
 
     /**
      * 아이디어
-     * 가장 작은 수 2개를 합한 후 카드 묶음에 새롭게 추가하고 횟수는 비교회수는 따로 더해준다. 카드 묶음이 1개가 될때까지 반복한다.
+     * 가장 작은 수 2개를 합한 후 카드 묶음에 새롭게 추가하고 비교회수는 따로 더해준다. 카드 묶음이 1개가 될때까지 반복한다.
      */
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
