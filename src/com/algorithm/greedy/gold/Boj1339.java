@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Boj1339 {
     // 문제
@@ -24,20 +25,42 @@ public class Boj1339 {
     /**
      * 아이디어
      * 문자열의 길이가 가장 큰 수를 결정하므로 길이의 내림차순으로 정렬한다.
-     *
+     * 아스키 코드(대문자 A는 65부터 시작)를 이용 알파벳 별로 자릿수의 값(ex/ 10의 자리 +10, 100의 자리 +10^2, 1000의 자리 +10^3)
+     * 내림차순으로 정렬하여 9부터 차레대로 곱하고 더해준다.
      */
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
         String[] S = new String[N];
+        // 알파벳의 개수는 26개 이므로 26개 선언
+        Integer[] alpha = new Integer[26];
+
+        for(int i = 0; i < 26; i++)
+            alpha[i] = 0;
 
         for(int i = 0; i < N; i++)
             S[i] = br.readLine();
 
-        Arrays.sort(S, (o1, o2) -> o2.length() - o1.length());
+        for(int i = 0; i < S.length; i++) {
+            int leng = S[i].length() - 1;
+            // 알파벳에 따라 자리수를 더해준다.
+            for(int j = 0; j < S[i].length(); j++) {
+                alpha[(int) S[i].charAt(j) - 65] += (int) Math.pow(10, leng);
+                leng--;
+            }
+        }
+        // 자리수가 큰 수대로 정렬
+        Arrays.sort(alpha, Collections.reverseOrder());
 
-        for(String s : S)
-            System.out.println(s);
-
+        int sum = 0;
+        int cnt = 9;
+        for(int i = 0; i < 26; i++){
+            // alpha 배열은 0으로 초기화돼있고 내림차순정렬하였기 때문에 0을 만나면 반복문을 탈출한다.
+            if(alpha[i] == 0)
+                break;
+            sum += alpha[i] * cnt;
+            cnt--;
+        }
+        System.out.println(sum);
     }
 }

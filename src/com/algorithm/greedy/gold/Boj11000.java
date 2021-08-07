@@ -63,7 +63,7 @@ public class Boj11000 {
             lec[i] = new Lecture(s, e);
         }
 
-        //우선순위 큐를 사용한다.
+        // 우선순위 큐를 사용한다.
         PriorityQueue<Integer> pq = new PriorityQueue<>();
 
         Arrays.sort(lec);
