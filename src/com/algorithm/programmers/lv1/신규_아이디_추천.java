@@ -53,6 +53,8 @@ public class 신규_아이디_추천 {
         //6단계
         if (sb_new_id.length() > 15)
             sb_new_id = new StringBuilder(sb_new_id.substring(0, 15));
+        if (sb_new_id.charAt(sb_new_id.length() - 1) == '.')
+            sb_new_id.deleteCharAt(sb_new_id.length() - 1);
         System.out.println("6단계 : " + sb_new_id);
 
         //7단계
