@@ -37,7 +37,6 @@ public class 체육복 {
                 answer++;
             }
         }
-
         return answer;
     }
 }
