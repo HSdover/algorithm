@@ -25,21 +25,34 @@ public class 실패율 {
             cnt = 0;
         }
 
-        System.out.println(stage);
         List<Double> copyS = new ArrayList<>(stage);
 
         stage.sort(Comparator.reverseOrder());
         System.out.println(stage);
+        System.out.println(copyS);
 
+        System.out.println(stage.get(0) == copyS.get(2));
+        System.out.println(stage.get(0) == copyS.get(3));
+        System.out.println(stage.get(0).floatValue());
+        System.out.println(copyS.get(2).floatValue());
+        System.out.println(stage.get(0).floatValue());
+        System.out.println(copyS.get(3).floatValue());
+        System.out.println(stage.get(1) == copyS.get(2));
+        System.out.println(stage.get(1) == copyS.get(3));
         for(int i = 0; i < N; i++) {
             for(int j = 0; j < N; j++) {
-                if(copyS.get(i) == stage.get(j)) {
+                System.out.println(i);
+                System.out.println(copyS.get(j));
+                System.out.println(stage.get(i));
+                if(copyS.get(j) == stage.get(i)) {
                     answer[i] = j + 1;
+                    System.out.println("break point");
                     break;
                 }
             }
+//            if(i == 1)
+//                break;
         }
-
         System.out.println(Arrays.toString(answer));
         //모든 테스트 케이스 통과 불가..
 //        int cnt = 0;
