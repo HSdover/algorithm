@@ -9,7 +9,7 @@ public class 실패율 {
 
     public static int[] solution() {
         int N = 5;
-        int[] stages = {2, 1, 2, 6, 2, 4, 3, 3};
+        int[] stages = {1, 1, 1, 1, 1};
         int[] answer = new int[N];
 
         int cnt = 0;
@@ -20,33 +20,29 @@ public class 실패율 {
                 if(i == stages[j]-1)
                     cnt++;
             }
-            stage.add(cnt / people);
-            people -= cnt;
-            cnt = 0;
+            // 남아있는 사람 수가 0명일경우를 처리해주지않으면 NaN이 나와 멀쩡한 연산을 할 수 없다.
+//            [1.0, NaN, NaN, NaN, NaN]
+//            [2, 3, 4, 5, 1]
+            if(people == 0) {
+                stage.add(0.0);
+            }
+            else {
+                stage.add(cnt / people);
+                people -= cnt;
+                cnt = 0;
+            }
         }
 
+        System.out.println(stage);
         List<Double> copyS = new ArrayList<>(stage);
 
         stage.sort(Comparator.reverseOrder());
-        System.out.println(stage);
-        System.out.println(copyS);
 
-        System.out.println(stage.get(0) == copyS.get(2));
-        System.out.println(stage.get(0) == copyS.get(3));
-        System.out.println(stage.get(0).floatValue());
-        System.out.println(copyS.get(2).floatValue());
-        System.out.println(stage.get(0).floatValue());
-        System.out.println(copyS.get(3).floatValue());
-        System.out.println(stage.get(1) == copyS.get(2));
-        System.out.println(stage.get(1) == copyS.get(3));
         for(int i = 0; i < N; i++) {
             for(int j = 0; j < N; j++) {
-                System.out.println(i);
-                System.out.println(copyS.get(j));
-                System.out.println(stage.get(i));
-                if(copyS.get(j) == stage.get(i)) {
+                if(copyS.get(j) != -1.0 && copyS.get(j) == stage.get(i)) {
+                    copyS.set(j, -1.0);
                     answer[i] = j + 1;
-                    System.out.println("break point");
                     break;
                 }
             }
