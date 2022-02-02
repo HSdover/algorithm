@@ -33,8 +33,7 @@ public class 비밀지도 {
                 else {
                     arr1[i] /= 2;
                     arr2[i] /= 2;
-                    if(sb == null && sb.charAt(0) != ' ')
-                        sb.insert(0, " ");
+                    sb.insert(0, " ");
                 }
             }
             answer[i] = sb.toString();
