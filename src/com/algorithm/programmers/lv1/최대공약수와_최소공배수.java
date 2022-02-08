@@ -7,7 +7,7 @@ import java.util.List;
 
 public class 최대공약수와_최소공배수 {
     public static void main(String[] args) {
-        solution(1000000, 999999);
+        solution(18293, 18293);
     }
 
     public static long[] solution(int n, int m) {
@@ -28,14 +28,24 @@ public class 최대공약수와_최소공배수 {
             }
             idx++;
         }
-        System.out.println(mArr);
+        nArr.sort(Comparator.naturalOrder());
+        mArr.sort(Comparator.naturalOrder());
         System.out.println(nArr);
+        System.out.println(mArr);
         // 최대 공약수
+        System.out.println(nArr.size());
+        System.out.println(mArr.size());
         int maxVal = 1;
         for(int i = 0; i < nArr.size(); i++) {
+            System.out.println("반복" + i);
             for(int j = 0; j < mArr.size(); j++) {
+                System.out.println("nArr = " + nArr.get(i));
+                System.out.println("mArr = " + mArr.get(j));
+                System.out.println(nArr.get(i).equals(mArr.get(j)));
+                //Integer 비교 시에는 .equals를 사용하자.
                 if(nArr.get(i) == mArr.get(j)) {
                     maxVal = nArr.get(i);
+                    System.out.println(maxVal);
                     break;
                 }
             }
