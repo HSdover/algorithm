@@ -5,30 +5,32 @@ public class 괄호_변환 {
         solution("()))((()");
     }
 
+    private static String[] makeString(String p) {
+        String[] uv = new String[2];
+
+        int right = 0, left = 0;
+        StringBuilder sb = new StringBuilder(p);
+        for(int i = 0; i < p.length(); i++) {
+            if(sb.charAt(i) == ')') {
+                right++;
+                uv[0] += sb.charAt(i);
+            }
+            else {
+                left++;
+                uv[0] += sb.charAt(i);
+            }
+        }
+
+        return uv;
+    }
+
     public static String solution(String p) {
         String answer = "";
 
-        char[] cp = p.toCharArray();
-        int left = 0;
-        int right = 0;
-        String regex = "";
-        for(int i = 0; i < cp.length; i++) {
-            if(cp[i] == '(') {
-                left++;
-                regex += cp[i];
-            }
-            else {
-                right++;
-                regex += cp[i];
-            }
-            if(left == right) {
-                StringBuilder r1 = new StringBuilder(regex.substring(0, regex.length()/2));
-                StringBuilder r2 = new StringBuilder(regex.substring(regex.length()/2));
-                System.out.println(r1);
-                System.out.println(r2.reverse());
+        String u = new String();
+        String v = new String();
 
-            }
-        }
+
         return answer;
     }
 }
