@@ -1,9 +1,6 @@
 package com.algorithm.programmers.lv2;
 
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class 프린터 {
     public static void main(String[] args) {
@@ -15,39 +12,37 @@ public class 프린터 {
         int location = 2;
         int answer = 0;
 
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
         Queue<Integer> q = new LinkedList<>();
         for(int i = 0; i < priorities.length; i++) {
             pq.add(priorities[i]);
             q.add(priorities[i]);
         }
 
-        System.out.println(q);
         boolean escape = true;
         while(escape) {
             for(int i = 0; i < priorities.length; i++) {
-                answer++;
-                if(pq.peek() == q.poll()) {
-                    if(location == 0)
+                int doc = q.poll();
+                if(pq.peek() == doc) {
+                    System.out.println(location);
+                    System.out.println("pq = " + pq.peek());
+                    answer++;
+                    if(location == 0) {
                         escape = false;
+                        break;
+                    }
                     else
-                        location--;
+                        pq.poll();
                 }
-                else {
-                    q.add(q.poll());
-                    if(location == 0)
-                        location = q.size();
-                    else
-                        location--;
-                }
+                else
+                    q.add(doc);
+
+                if(location == 0)
+                    location = q.size()-1;
+                else
+                    location--;
             }
-            System.out.println(answer);
         }
-
-
-
-
-
         return answer;
     }
 }
