@@ -2,9 +2,9 @@ package com.algorithm.programmers.lv2;
 
 import java.util.*;
 
-public class 순위_검색<ArraysList> {
+public class 순위_검색_review<ArraysList> {
     public static void main(String[] args) {
-        순위_검색 test = new 순위_검색();
+        순위_검색_review test = new 순위_검색_review();
         test.solution();
     }
 
@@ -42,7 +42,7 @@ public class 순위_검색<ArraysList> {
 
             answer[i] = search(str[0], score);
         }
-        System.out.println(Arrays.toString(answer));
+
         return answer;
     }
 
