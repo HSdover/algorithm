@@ -20,7 +20,7 @@ public class 후보키_review {
         answer = 0;
         candidateKey = new ArrayList<>();
         Table = relation;
-        length = relation[0].length;
+        length = relation[0].length;    // 5
         for(int i = 0; i <= length; i++)
             makeSet(-1, i, 0, new HashSet<Integer>());
 
