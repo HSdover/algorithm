@@ -1,10 +1,8 @@
 package com.algorithm.programmers.lv2;
 
-import java.util.Arrays;
-
-public class 배달 {
+public class 배달_Floyd {
     public static void main(String[] args) {
-        배달 t = new 배달();
+        배달_Floyd t = new 배달_Floyd();
         int[][] road = {{1,2,1},{2,3,3},{5,2,2},{1,4,2},{5,3,1},{5,4,2}};   // 0, 1은 마을 / 2는 마을 이동 간 걸리는 시간
         t.solution(5, road,3);
     }
