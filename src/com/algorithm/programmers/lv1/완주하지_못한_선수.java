@@ -19,7 +19,7 @@ public class 완주하지_못한_선수 {
         System.out.println(Arrays.toString(completion));
 
         for(int i = 0; i < completion.length; i++) {
-            if(participant[i].equals(completion[i])) {
+            if(!participant[i].equals(completion[i])) {
                 answer = participant[i];
                 break;
             }
