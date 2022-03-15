@@ -1,4 +1,4 @@
-package com.algorithm.boj.greedy;
+package com.algorithm;
 
 /**
  * - 유니온-파인드 알고리즘
