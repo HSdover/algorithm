@@ -14,7 +14,7 @@ public class 카펫 {
         int[] answer = new int[2];
         int sum = brown + yellow;
 
-        for(int i = 1; i < Math.sqrt(sum); i++) {
+        for(int i = 1; i <= Math.sqrt(sum); i++) {
             if(sum % i == 0) {
                 if((i-2) * (sum/i-2) == sum) {
                     if(i > sum/i) {
